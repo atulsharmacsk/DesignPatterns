@@ -1,9 +1,9 @@
 package tests;
 
-import com.pojo.basicBuilder.PostBuilder;
-import com.pojo.innerClass.Posts_;
-import com.pojo.lombok.Posts__;
-import com.pojo.noBuilder.Posts;
+import builder.pojo.basicBuilder.PostBuilder;
+import builder.pojo.innerClass.Posts_;
+import builder.pojo.lombok.Posts__;
+import builder.pojo.noBuilder.Posts;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class TestClass {
+public class TestBuilder {
 
     private static RequestSpecification requestSpecification;
     private static Response response;

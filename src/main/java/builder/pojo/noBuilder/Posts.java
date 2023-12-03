@@ -1,4 +1,4 @@
-package com.pojo.noBuilder;
+package builder.pojo.noBuilder;
 
 public class Posts {
     private int id;

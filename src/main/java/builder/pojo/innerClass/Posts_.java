@@ -1,4 +1,4 @@
-package com.pojo.innerClass;
+package builder.pojo.innerClass;
 
 public class Posts_ {
     private int id;

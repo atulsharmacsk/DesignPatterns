@@ -1,6 +1,6 @@
-package com.pojo.basicBuilder;
+package builder.pojo.basicBuilder;
 
-import com.pojo.noBuilder.Posts;
+import builder.pojo.noBuilder.Posts;
 
 // flexible paramteres, readability at Test layer
 
