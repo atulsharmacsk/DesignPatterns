@@ -1,4 +1,4 @@
-package singleton;
+package singleton.ThreadSafe;
 
 import Utils.FileUtils;
 import factory.service.subclsses.BrandService;
@@ -10,20 +10,21 @@ import lombok.SneakyThrows;
 import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class SchemaManager {
-    private static SchemaManager schemaManager;
+public class SchemaManagerStaticInner {
 
     private final Map<String, String> schemasMap = Map.of(
             BrandService.EndPoints.BRANDS, "getBrands.json",
             ProductService.EndPoints.PRODUCTS, "getProducts.json"
     );
 
+    private static class Inner {
+        private static final SchemaManagerStaticInner schemaManager = new SchemaManagerStaticInner();
+    }
+
+    //inner static classes are lazily loaded by JVM, upon first invocation
     @SneakyThrows
-    public static SchemaManager getSchemaManager() {
-        if (schemaManager == null) {
-            schemaManager = new SchemaManager();
-        }
-        return schemaManager;
+    public static SchemaManagerStaticInner getSchemaManager() {
+        return Inner.schemaManager;
     }
 
     public String getSchema(String endPoint) {

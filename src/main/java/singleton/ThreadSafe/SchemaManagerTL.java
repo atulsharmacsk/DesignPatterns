@@ -1,4 +1,4 @@
-package singleton;
+package singleton.ThreadSafe;
 
 import Utils.FileUtils;
 import factory.service.subclsses.BrandService;
@@ -10,8 +10,10 @@ import lombok.SneakyThrows;
 import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class SchemaManager {
-    private static SchemaManager schemaManager;
+public class SchemaManagerTL {
+
+    // thread safe but one instance per thread
+    private static ThreadLocal<SchemaManagerTL> schemaManager;
 
     private final Map<String, String> schemasMap = Map.of(
             BrandService.EndPoints.BRANDS, "getBrands.json",
@@ -19,16 +21,14 @@ public class SchemaManager {
     );
 
     @SneakyThrows
-    public static SchemaManager getSchemaManager() {
-        if (schemaManager == null) {
-            schemaManager = new SchemaManager();
+    public static SchemaManagerTL getSchemaManager() {
+        if (schemaManager.get() == null) {
+            schemaManager.set(new SchemaManagerTL());
         }
-        return schemaManager;
+        return schemaManager.get();
     }
 
     public String getSchema(String endPoint) {
         return FileUtils.readFile("Schema/" + schemasMap.get(endPoint));
     }
-
-
 }

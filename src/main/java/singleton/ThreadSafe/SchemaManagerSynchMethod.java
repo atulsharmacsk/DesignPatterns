@@ -1,4 +1,4 @@
-package singleton;
+package singleton.ThreadSafe;
 
 import Utils.FileUtils;
 import factory.service.subclsses.BrandService;
@@ -10,18 +10,21 @@ import lombok.SneakyThrows;
 import java.util.Map;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class SchemaManager {
-    private static SchemaManager schemaManager;
+public class SchemaManagerSynchMethod {
+
+    private static SchemaManagerSynchMethod schemaManager;
 
     private final Map<String, String> schemasMap = Map.of(
             BrandService.EndPoints.BRANDS, "getBrands.json",
             ProductService.EndPoints.PRODUCTS, "getProducts.json"
     );
 
+    // thread safe & only one instance per multiple threads but slow
+    // as it waits till previous thread completes
     @SneakyThrows
-    public static SchemaManager getSchemaManager() {
+    public static synchronized SchemaManagerSynchMethod getSchemaManager() {
         if (schemaManager == null) {
-            schemaManager = new SchemaManager();
+            schemaManager = new SchemaManagerSynchMethod();
         }
         return schemaManager;
     }
