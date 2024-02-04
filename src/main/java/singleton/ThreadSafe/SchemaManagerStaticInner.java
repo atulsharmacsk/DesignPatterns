@@ -1,8 +1,8 @@
 package singleton.ThreadSafe;
 
 import Utils.FileUtils;
-import factory.service.subclsses.BrandService;
-import factory.service.subclsses.ProductService;
+import factory.service.SOM.BrandService;
+import factory.service.SOM.ProductService;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;

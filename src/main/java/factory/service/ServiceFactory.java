@@ -1,7 +1,7 @@
 package factory.service;
 
-import factory.service.subclsses.BrandService;
-import factory.service.subclsses.ProductService;
+import factory.service.SOM.BrandService;
+import factory.service.SOM.ProductService;
 
 public class ServiceFactory {
     public static Service getService(Services service) {

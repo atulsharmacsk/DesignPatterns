@@ -3,7 +3,7 @@
 <suite name="Suite1" verbose="1" >
     <test name="Regression" parallel="methods" thread-count="6">
         <classes>
-            <class name="tests.TestSingletonThread"/>
+            <class name="tests.TestSOMs"/>
         </classes>
     </test>
 </suite>

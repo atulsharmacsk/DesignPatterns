@@ -1,4 +1,4 @@
-package factory.service.subclsses;
+package factory.service.SOM;
 
 import factory.service.Service;
 import lombok.AccessLevel;

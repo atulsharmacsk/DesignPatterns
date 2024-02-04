@@ -6,23 +6,17 @@ import com.github.fge.jsonschema.core.report.ProcessingReport;
 import factory.service.Service;
 import factory.service.ServiceFactory;
 import factory.service.Services;
-import factory.service.subclsses.BrandService;
-import factory.service.subclsses.ProductService;
+import factory.service.SOM.BrandService;
+import factory.service.SOM.ProductService;
 import io.restassured.RestAssured;
 import io.restassured.config.HttpClientConfig;
 import io.restassured.config.RestAssuredConfig;
-import io.restassured.http.ContentType;
-import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.module.jsv.JsonSchemaValidatorSettings;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import lombok.SneakyThrows;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
-import singleton.SchemaManager;
 import singleton.ThreadSafe.SchemaManagerStaticInner;
-
-import java.io.File;
 
 public class TestSingletonThread {
 
